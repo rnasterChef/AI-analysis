@@ -97,6 +97,7 @@ app.post("/analysis", async (req, res) => {
     const completion = await openai.chat.completions.create({
       model: OPENAI_MODEL,
       temperature: 0.25,
+      response_format: { type: "json_object" },
       messages: [
         {
           role: "system",
@@ -139,7 +140,6 @@ app.post("/analysis/dev", async (req, res) => {
       return res.json({
         analysis: {
           최종_라벨: "혼합형(테스트)",
-          신뢰도: 50,
           스탯: {
             질서: 60,
             자유: 40,
@@ -161,7 +161,6 @@ app.post("/analysis/dev", async (req, res) => {
     const completion = await openai.chat.completions.create({
       model: OPENAI_MODEL,
       temperature: 0.25,
-      max_tokens: 800,
       frequency_penalty: 0.2,
       presence_penalty: 0.0,
       response_format: { type: "json_object" },
