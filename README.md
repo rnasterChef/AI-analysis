@@ -41,6 +41,8 @@ AI-analysis/
 ├─ .env               # 환경 변수 (gitignore)
 ├─ package.json
 └─ README.md
+```
+
 ---
 
 ## 🧠 시스템 프롬프트 개요
